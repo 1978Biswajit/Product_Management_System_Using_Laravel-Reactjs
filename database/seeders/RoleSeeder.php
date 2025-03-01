@@ -7,12 +7,30 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
+use App\Models\Product;
 
 
 class RoleSeeder extends Seeder
 {
     public function run()
     {
+        $product = Product::create([
+            'name' => 'Product Name',
+            'description' => 'Product Description',
+            'price' => 100.00,
+        ]);
+        $products = Product::all();
+        $product = Product::find($id);
+        
+        $product = Product::find($id);
+        $product->update([
+            'name' => 'Updated Product Name',
+            'price' => 120.00,
+        ]);
+        $product = Product::find($id);
+        $product->delete();
+                
+
         // রোল তৈরি করা
         $adminRole = Role::create(['name' => 'Admin']);
         $userRole = Role::create(['name' => 'User']);
